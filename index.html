@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informations du serveur Minecraft</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .server-info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Informations du serveur Minecraft</h1>
+
+<div class="server-info">
+    Dernière mise à jour du statut : <span id="lastUpdated"></span>
+</div>
+<div class="server-info">
+    Protocole du serveur : <span id="serverProtocol"></span>
+</div>
+<div class="server-info">
+    Version actuelle du serveur : <span id="serverVersion"></span>
+</div>
+<div class="server-info">
+    Joueurs en ligne : <span id="playersInfo"></span>
+</div>
+<div class="server-info">
+    En ligne : <span id="online"></span>
+</div>
+
+<script src="https://mcapi.us/scripts/minecraft.min.js"></script>
+<script>
+    MinecraftAPI.getServerStatus('sunrise.craft.gg', {
+        port: 10008 // spécifiez le port si différent de 25565
+    }, function (err, status) {
+        document.getElementById('lastUpdated').innerHTML = new Date(status.last_updated * 1000).toLocaleString();
+        document.getElementById('serverProtocol').innerHTML = status.server.protocol;
+        document.getElementById('serverVersion').innerHTML = status.server.name;
+        
+        var playersInfo = status.players.now + '/' + status.players.max;
+        document.getElementById('playersInfo').innerHTML = playersInfo;
+
+        document.getElementById('online').innerHTML = status.online ? 'Oui' : 'Non';
+    });
+</script>
+
+</body>
+</html>
