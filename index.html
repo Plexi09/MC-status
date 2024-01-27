@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informations du serveur Minecraft</title>
+    <title>Minecraft server status</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,27 +12,28 @@
 
         .server-info {
             margin-top: 20px;
+            font-family: Arial, sans-serif;
         }
     </style>
 </head>
 <body>
 
-<h1>Sunrise Network Status</h1>
+<h1>Server status</h1>
 
 <div class="server-info">
-    Dernière mise à jour du statut : <span id="lastUpdated"></span>
+    Last update : <span id="lastUpdated"></span>
 </div>
 <div class="server-info">
-    Protocole du serveur : <span id="serverProtocol"></span>
+    Server protocol : <span id="serverProtocol"></span>
 </div>
 <div class="server-info">
-    Version actuelle du serveur : <span id="serverVersion"></span>
+    Server vertion : <span id="serverVersion"></span>
 </div>
 <div class="server-info">
-    Joueurs en ligne : <span id="playersInfo"></span>
+    Online players : <span id="playersInfo"></span>
 </div>
 <div class="server-info">
-    En ligne : <span id="online"></span>
+    Is online : <span id="online"></span>
 </div>
 
 <script src="https://mcapi.us/scripts/minecraft.min.js"></script>
